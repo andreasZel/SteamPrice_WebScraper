@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Steam Game Prices</title>
+		<link rel="stylesheet" href="./bootstrap-5.2.0-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="./bootstrap-5.2.0-dist/css/additional.css">
+	</head>
+	<body>
+
+	<!-- Main Page -->	
+	<div class = "container-fluid h-100" id = "myContainer" style="z-index: 0;">
+		
+		<div class = "row h-100">			
+			<div class = "col-lg-7 overflow-auto h-100 ">
+				<div class = "row h-50 pl-0 pb-2 ">
+					<div>						
+						<div class = "row h-100 ">
+							<div class = "col-lg-3 m-0 p-0 h-100">
+								<div class = "row h-20 p-0 m-0 "><br><br><br></div>
+									<div class = "row h-80 p-0 m-0 position-relative ">
+
+										<div class = "col-lg-6 h-100 p-0 m-0 ">
+
+											<img class="img-responsive" src="Ellipse 1.svg" id="eclypse">
+										</div>
+										
+										<div class = "col-lg-6 h-100 pt-0 m-0 position-absolute">
+											<br><br><br><br>
+											<button id="myBtn"><img class="img-responsive" id="img_search" src="search_btn.svg" alt="button" width="120" height="120"></button>
+										</div>
+									</div>
+							</div>
+
+							<div class = "col-lg-9 overflow-hidden py-0 px-0 h-100">
+								<div class = "row">
+									<div class = "gray_pad1">
+										<p>
+										Game Name
+										</p>
+									</div>
+								</div>
+								<div class = "row gray_pad_container ">
+									<div class = "row">
+										<div class="col-lg-9">
+											<p id = "wait_msg"></p>
+											
+											<p id = "image"> </p>
+										</div>
+										<div class="col-lg-3">
+											<div class ="row mt-5" id = "steam_shop"> </div>
+											<div class ="row mt-4">
+												<p id = "price"> </p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class = "row">
+									<div class = "gray_pad2"><br><br><br><br></div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class = "row h-50 ">
+					<div class="gray_box" >
+						<div class = "row h-20 title ">
+							<p>
+								Price Chart
+							</p>
+						</div>
+						<div class = "row h-80 mx-3" id = "chart_area" > 
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class = "col-lg-5 px-0 h-100 overflow-auto" >
+				<div class="gray_box" >
+					<div class = "row h-20 title ">
+						<p>
+							Prices
+						</p>
+					</div>
+					<div class = "row h-80 mx-3 overflow-auto" id = "result" >  </div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- Hidden Modal -->
+	<div id="myModal" class="Modal is-hidden is-visuallyHidden" style="z-index: 2;">
+		<div class="Modal-content">
+
+			<span id="closeModal" class="Close">&times;</span>
+
+			<div class="modal-header">
+				<h5 class="modal-title">Search a Game </h5>
+			</div>	 
+
+			<div class="input-group py-2">
+				<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="game_name" onKeyUp="showResults(this.value)">
+				<div class="input-group-append">
+					<button class="btn btn-outline-light" id="search_btn" type="button">Search</button>
+				</div>
+			</div>
+
+			<div class="modal-body overflow-auto">
+				<div id = "relative_games"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./bootstrap-5.2.0-dist/js/bootstrap.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="functions.js"></script>
+	<script>get_gameid_with_api();</script>
+
+	</body>
+</html>
